@@ -1,46 +1,35 @@
-import "./style.css"
+import ProductCard from "./components/ProductsCard"
 
 function App() {
 
+  const productList = [
+    {id: 1, name: "product 1", price: 100000},
+    {id: 2, name: "product 2", price: 200000},
+    {id: 3, name: "product 3", price: 300000},
+    {id: 4, name: "product 4", price: 400000},
+    {id: 5, name: "product 5", price: 500000},
+    {id: 6, name: "product 6", price: 600000},
+    {id: 7, name: "product 7", price: 700000},
+  ]
+
   return (
   <>
-  <header>
+  <header className="bg-[#152A46] text-white p-[28px]">
     <h1>Header</h1>
     <nav>
-      <ul>
-        <li><a href="#">Menu 1</a></li>
-        <li><a href="#">Menu 2</a></li>
-        <li><a href="#">Menu 3</a></li>
-        <li><span id="saldo">400000</span></li>
+      <ul className="list-none m-0 p-0">
+        <li className="inline-block mr-[10px]"><a className="text-white no-underline" href="#">Menu 1</a></li>
+        <li className="inline-block mr-[10px]"><a href="#">Menu 2</a></li>
+        <li className="inline-block mr-[10px]"><a href="#">Menu 3</a></li>
+        <li className="inline-block mr-[10px]"><span id="saldo">400000</span></li>
       </ul>
     </nav>
   </header>
 
-  <main class="grid-main">
-    <section>
-      <h2>React JS</h2>
-      <p>Ini adalah paragraf dalam React JS.</p>
-      <button onclick="checkout(0)">Checkout</button>
-    </section>
-
-    <section>
-      <h2>Flutter</h2>
-      <p>Ini adalah paragraf dalam Flutter.</p>
-      <button onclick="checkout(1)">Checkout</button>
-    </section>
-
-    <section>
-      <h2>IoT</h2>
-      <p>Ini adalah paragraf dalam IoT.</p>
-      <button onclick="checkout(2)">Checkout</button>
-    </section>
-
-    <section>
-      <h2>Data Science</h2>
-      <p>Ini adalah paragraf dalam Data Science.</p>
-      <button onclick="checkout(3)">Checkout</button>
-    </section>
-
+  <main class="grid sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-[10px] m-[12px]">
+    {productList.map(item => (
+      <ProductCard key={item.id}/>
+    ))}
   </main>
 
   <footer>
